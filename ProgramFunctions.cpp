@@ -87,30 +87,33 @@ void WritingTheDataToFile(int *FileArray, int SizeOfArray) {
 	cout << "Выберите пункт меню: ";
 	do {
 		UserChoice = GetWriteDataMenuItem();
-		if (UserChoice == Writing) {
-			cout << "Сохранение в файл" << endl;
-			string PathName = AddressTaking();
-			ofstream File;
-			File.open(PathName.c_str(), ios_base::trunc | ios_base::out);
-			if (File.is_open()) {
-				File << SizeOfArray << endl;
-				File << "[ ";
-				for (int i = 0; i < SizeOfArray; i++) File << FileArray[i] << " ";
-				File << "]";
-				cout << "Данные сохранены" << endl;
-				File.close();
-			}
-			else {
-				cout << "Файл недоступен для записи" << endl;
-				File.close();
-			}
+		switch (UserChoice) {
+			case Writing:
+				cout << "Сохранение в файл" << endl;
+				PathName = AddressTaking();
+				File.open(PathName.c_str(), ios_base::trunc | ios_base::out);
+				if (File.is_open()) {
+					File << SizeOfArray << endl;
+					File << "[ ";
+					for (int i = 0; i < SizeOfArray; i++) File << FileArray[i] << " ";
+					File << "]";
+					cout << "Данные сохранены" << endl;
+					File.close();
+				}
+				else {
+					cout << "Файл недоступен для записи" << endl;
+					File.close();
+				}
+				break;
+			case Cancelling:
+				continue;
+				break;
+
+			default:
+				cout << "Введённый пункт отсутствует. Повторите ввод: ";
+				break;
 		}
-		else if (UserChoice == Cancelling) {
-			continue;
-		}
-		else {
-			cout << "Введённый пункт отсутствует. Повторите ввод: ";
-		}
+
 	} while ((UserChoice != Writing) && (UserChoice != Cancelling));
 }
 
