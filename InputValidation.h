@@ -16,4 +16,4 @@ int GetInt(void);
 MainMenuItems GetMainMenuItem(void);
 EnteringMenuItems GetEnteringMenuItem(void);
 WriteDataMenuItems GetWriteDataMenuItem(void);
-ExistFileItems GetExistFileItem(void);
+FileRecordItems GetFileRecordItem(void);
