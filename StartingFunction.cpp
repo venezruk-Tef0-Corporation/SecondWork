@@ -11,7 +11,8 @@ using namespace std; /*позволяет использовать все иде
 		       из пространства имён std без указания 
 		       префикса std::*/
 
-//Функция главного меню
+/// <summary>ProgramStarting - Функция главного меню</summary>
+/// <param name="UserChoice"> - Используется для считывания выбранного пункта меню</param>
 void ProgramStarting(void) {
 	MainMenuItems UserChoice = static_cast<MainMenuItems>(0);
 	do {
