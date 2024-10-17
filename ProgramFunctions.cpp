@@ -20,8 +20,12 @@
 using namespace std;
 using namespace filesystem;
 
-//Функция на выбор перезаписи или нового файла
-string IsFileExist(void) {
+/// <param name="UserChoice"> - Используется для считывания выбранного пункта меню</param>
+/// <param name="FilePath"> - Используется для считывания введенного адреса файла</param>
+/// <param name="TryAnotherFile"> - Принимет значение true, если пользователь выбрал запись в другой файл</param>
+/// <param name="IsDataSaved"> - Принимет значение true, когда данные записаны в файл</param>
+/// <summary>FileRecord - Функция выбора адреса для записи данных</summary>
+string AddressTaking(void) {
 	ExistFileItems UserChoice = static_cast<ExistFileItems>(0);
 	string FilePath;
 	bool TryAnotherFile = false;
@@ -70,7 +74,11 @@ string IsFileExist(void) {
 	return FilePath;
 }
 
-//Функция для записи данных в файл
+/// <summary>WritingTheDataToFile - Функция записи данных в файл</summary>
+/// <param name="UserChoice"> - Используется для считывания выбранного пункта меню</param>
+/// <param name="FileArray"> - Записываемый в файл массив</param>
+/// <param name="SizeOfArray"> - Записываемый в файл размер массива</param>
+/// <param name="SizeOfArray"> - Записываемый в файл размер массива</param>
 void WritingTheDataToFile(int *FileArray, int SizeOfArray) {
 	WriteDataMenuItems UserChoice = static_cast<WriteDataMenuItems>(0);
 	cout << "Записать данные в файл?" << endl;
@@ -81,7 +89,7 @@ void WritingTheDataToFile(int *FileArray, int SizeOfArray) {
 		UserChoice = GetWriteDataMenuItem();
 		if (UserChoice == Writing) {
 			cout << "Сохранение в файл" << endl;
-			string PathName = IsFileExist();
+			string PathName = AddressTaking();
 			ofstream File;
 			File.open(PathName.c_str(), ios_base::trunc | ios_base::out);
 			if (File.is_open()) {
@@ -106,14 +114,21 @@ void WritingTheDataToFile(int *FileArray, int SizeOfArray) {
 	} while ((UserChoice != Writing) && (UserChoice != Cancelling));
 }
 
-//Функция вывода отсортированного массива
+/// <summary>ShowSortedArray - Функция вывода отсортированного массива</summary>
+/// <param name="SortedArray"> - Отсортированный массив</param>
+/// <param name="SizeOfArray"> - Размер массива</param>
 void ShowSortedArray(int* SortedArray, int SizeOfArray) {
 	cout << "Отсортированный массив: [ ";
 	for (int i = 0; i < SizeOfArray; i++) cout << SortedArray[i] << " ";
 	cout << "]" << endl;
 }
 
-//Функция сортировки массива
+/// <summary>ShowSortedArray - Функция сортировки массива</summary>
+/// <param name="ArrayForSorting"> - Исходный массив</param>
+/// <param name="SizeOfArray"> - Размер массива</param>
+/// <param name="IsSwapped"> - Принимет значение true, когда произошла перестановка элементов</param>
+/// <param name="Start"> - Начальный элемент сортировки</param>
+/// <param name="End"> - Конечный элемент сортировки</param>
 void ShakerSorting(int* ArrayForSorting, int SizeOfArray) {
 
 	bool IsSwapped = true;
@@ -154,7 +169,13 @@ void ShakerSorting(int* ArrayForSorting, int SizeOfArray) {
 
 }
 
-//Функция заполнения массива случайными значениями
+/// <summary>AutoEntering - Функция заполнения массива случайными значениями</summary>
+/// <param name="ArraySize"> - Размер массива, определямый случайным образом</param>
+/// <param name="RangeForSize"> - Длина выборки для случайного значения размера</param>
+/// <param name="MinimumForSize"> - Младший элемент выборки для случайного значения размера</param>
+/// <param name="Array"> - Массив, заполняемый случайными значениями</param>
+/// <param name="RangeForElements"> - Длина выборки для случайного значения элемента</param>
+/// <param name="MinimumForElements"> - Младший элемент выборки для случайного значения элемента</param>
 void AutoEntering(void) {
 
 	int ArraySize = rand() % RangeForSize + rand() % MinimumForSize;
@@ -177,7 +198,9 @@ void AutoEntering(void) {
 	WritingTheDataToFile(Array, ArraySize);
 }
 
-//Функция заполнения массива вручную
+/// <summary>ManualEntering - Функция заполнения массива с клавиатуры</summary>
+/// <param name="ArraySize"> - Размер массива, вводимый с клавиатуры</param>
+/// <param name="Array"> - Массив, элементы которого вводятся с клавиатуры</param>
 void ManualEntering(void) {
 
 	int ArraySize = 0;
@@ -204,7 +227,8 @@ void ManualEntering(void) {
 	WritingTheDataToFile(Array, ArraySize);
 }
 
-//Функция выбора способа заполнения массива
+/// <summary>AutoEntering - Функция выбора способа заполнения массива</summary>
+/// <param name="UserChoice"> - Используется для считывания выбранного пункта меню</param>
 void ProgramEntering(void) {
 
 	EnteringMenuItems UserChoice = static_cast<EnteringMenuItems>(0);
