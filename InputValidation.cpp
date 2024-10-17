@@ -27,27 +27,27 @@ T GetInput(void) {
 	return UserInput;
 }
 
-//Функция на проверку ввода целого числа с использованием шаблонной функции 
+/// <summary>GetInt - Функция на проверку целочисленного ввода с использованием шаблонной функции</summary>
 int GetInt(void) {
 	return GetInput<int>();
 }
 
-//Функция на проверку ввода пункта главного меню с использованием функции на проверку ввода целого числа 
+/// <summary>GetMainMenuItem - Функция на проверку ввода пункта главного меню с использованием функции на проверку ввода целого числа</summary>
 MainMenuItems GetMainMenuItem(void) {
 	return static_cast<MainMenuItems>(GetInt());
 }
 
-//Функция на проверку ввода пункта следующего за главным меню с использованием функции на проверку ввода целого числа 
+/// <summary>GetMainMenuItem - Функция на проверку ввода пункта следующего за главным меню с использованием функции на проверку ввода целого числа</summary>
 EnteringMenuItems GetEnteringMenuItem(void) {
 	return static_cast<EnteringMenuItems>(GetInt());
 }
 
-//Функция на проверку ввода пункта меню для выбора записи с использованием функции на проверку ввода целого числа
+/// <summary>GetMainMenuItem - Функция на проверку ввода пункта меню для выбора записи с использованием функции на проверку ввода целого числа</summary>
 WriteDataMenuItems GetWriteDataMenuItem(void) {
 	return static_cast<WriteDataMenuItems>(GetInt());
 }
 
-//Функция на проверку ввода пункта меню для выбора места для записи с использованием функции на проверку ввода целого числа 
+/// <summary>GetMainMenuItem - Функция на проверку ввода пункта меню для выбора места для записи с использованием функции на проверку ввода целого числа </summary>
 ExistFileItems GetExistFileItem(void) {
 	return static_cast<ExistFileItems>(GetInt());
 }
