@@ -23,18 +23,18 @@ void ProgramStarting(void) {
 		cout << "Выберите пункт меню: ";
 		UserChoice = GetMainMenuItem();
 		switch (UserChoice) {
-		case StartProgram:
-			ProgramEntering();
-			break;
-		case StartTesting:
-			SetTesting();
-			break;
-		case Quit:
-			cout << "Завершение работы" << endl;
-			break;
-		default:
-			cout << "Введённый пункт не найден. Повторите ввод: " << endl;
-			break;
+			case StartProgram:
+				ProgramEntering();
+				break;
+			case StartTesting:
+				SetTesting();
+				break;
+			case Quit:
+				cout << "Завершение работы" << endl;
+				break;
+			default:
+				cout << "Введённый пункт не найден. Повторите ввод: " << endl;
+				break;
 		}
 	} while (UserChoice != Quit);
 }
