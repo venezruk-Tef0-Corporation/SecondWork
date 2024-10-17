@@ -245,17 +245,15 @@ void ProgramEntering(void) {
 		UserChoice = GetEnteringMenuItem();
 
 		switch (UserChoice) {
-
-		case ManualEnter:
-			ManualEntering();
-			break;
-		case AutoEnter:
-			AutoEntering();
-			break;
-
-		default:
-			cout << "Введённый пункт не найден. Повторите ввод." << endl;
-			break;
+			case ManualEnter:
+				ManualEntering();
+				break;
+			case AutoEnter:
+				AutoEntering();
+				break;
+			default:
+				cout << "Введённый пункт не найден. Повторите ввод." << endl;
+				break;
 		}
 	} while ((UserChoice != ManualEnter) && (UserChoice != AutoEnter));
 
