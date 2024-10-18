@@ -5,8 +5,8 @@
 #include "ProgramFunctions.h"
 
 using namespace std; /*позволяет использовать все идентификаторы
-					   из пространства имён std без указания
-					   префикса std::*/
+		       из пространства имён std без указания
+		       префикса std::*/
 
 /// <summary>CompletionArrayOfArrays - Функция для заполнения массива указателями на массив</summary>
 /// <param name="ArrayOfArrays"> - Массив указателей на массив</param>
