@@ -50,7 +50,6 @@ void SetTesting(void) {
 
 	for (int i = 0; i < size; i++) ShakerSorting(ArrayOfArrays[i], size);
 
-
 	int* truefirstarray = new int[size] { 1, 2, 3, 5 };
 	int* truesecondarray = new int[size] { 2, 5, 5, 6 };
 	int* truethirdarray = new int[size] { -10, 3, 6, 7 };
@@ -71,4 +70,5 @@ void SetTesting(void) {
 	}
 
 	if (IsTestFine) cout << "Тесты завершены успешно." << endl;
+
 }
